@@ -27,6 +27,10 @@ app.use(express.static(publicPath));
 const indexRouter = require("./src/routes/indexRouter");
 app.use(indexRouter);
 
+app.use(function(req, res, next){
+    res.status(404).render('error404');
+});
+
 // Starting the server
 app.listen(4000, function(){
     console.log(`Servidor corriendo en Puerto 4000`);

@@ -9,4 +9,8 @@ router.get('/add', function(req, res){
     res.render("addLink");
 });
 
+router.post('/add', function(req, res){
+    res.send("Enviado correctamente");
+});
+
 module.exports = router;
