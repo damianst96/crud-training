@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./partials/head.ejs')%>
+    <title>Automovilismo Web</title>
+</head>
+
+<body>
+    <%-include('./partials/header.ejs')%>
+    <h1>LINKS</h1>
+    <section class="links">
+        <% for(let i = 0; i < links.length; i++){ %>
+            <h2><%= links[i].title %></h2>
+            <p><%= links[i].description %></p>
+            <a href="<%= links[i].url %>">Enlace</a>
+        <% } %>
+    </section>
+    
+</body>
+</html>
