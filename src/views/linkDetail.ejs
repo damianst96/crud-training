@@ -10,18 +10,20 @@
 <body>
     <%-include('./partials/header.ejs')%>
 
-    <h1 class="title">Links guardados</h1>
-
-    <div class="card" style="width: 18rem;">
-        <% for(let i = 0; i < link.length; i++){ %>
-            <div class="card-body">
-                <a class="card-title" href="<%= link[i].url %>"><%= link[i].title.toUpperCase() %></a>
-                <p class="card-text"><%= link[i].description %></p>
-                <a class="btn btn-secondary" href="#" role="button">Editar</a>
-                <a class="btn btn-danger" href="#" role="button">Borrar</a>
-            </div>
-        <% } %>
-    </div>
     
+        <% if (link) { %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <a class="card-title" href="<%= link.url %>"><%= link.title.toUpperCase() %></a>
+                    <p class="card-text"><%= link.description %></p>
+                    <a class="btn btn-secondary" href="#" role="button">Editar</a>
+                    <a class="btn btn-danger" href="#" role="button">Borrar</a>
+                </div>
+            </div>
+        <% } else { %>
+            <p class="title">No hay links para mostrar</p>
+        <% } %>
+    
+
 </body>
 </html>

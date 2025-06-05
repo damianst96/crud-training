@@ -7,9 +7,9 @@
 
 <body>
     <%-include('./partials/header.ejs')%>
-    <h1>Agregar Link</h1>
+    <h1 class="title">Agregar Link</h1>
 
-    <form action="/add" method="POST" class="card-body">
+    <form action="/links/add" method="POST" class="form-body">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Título</label>
             <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Título" autofocus>
