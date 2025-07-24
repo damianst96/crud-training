@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
     <%-include('./partials/head.ejs')%>
-    <title>Add Link</title>
+    <title>Edit Link</title>
 </head>
 
 <body>
     <%-include('./partials/header.ejs')%>
-    <h1 class="title">Agregar Link</h1>
+    <h1 class="title">Editar Link</h1>
 
-    <form action="/add" method="POST" class="form-body">
+    <form action="/links/edit/<%= link.id %>" method="POST" class="form-body">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Título</label>
-            <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Título" autofocus>
+            <input value="<%= link.title %>" type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Título" autofocus>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Link</label>
-            <input type="url" name="link" class="form-control" id="exampleFormControlInput1" placeholder="URL">
+            <input value="<%= link.url %>" type="url" name="link" class="form-control" id="exampleFormControlInput1" placeholder="URL">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea value="<%= link.description %>" class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Agregar Link</button>
+        <button type="submit" class="btn btn-success">Editar Link</button>
     </form>
 
 </body>
