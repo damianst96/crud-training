@@ -9,21 +9,24 @@
     <%-include('./partials/header.ejs')%>
     <h1 class="title">Editar Link</h1>
 
-    <form action="/links/edit/<%= link.id %>" method="POST" class="form-body">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Título</label>
-            <input value="<%= link.title %>" type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Título" autofocus>
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Link</label>
-            <input value="<%= link.url %>" type="url" name="link" class="form-control" id="exampleFormControlInput1" placeholder="URL">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-            <textarea value="<%= link.description %>" class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-success">Editar Link</button>
-    </form>
+    <% if (link) { %>
+        <form action="/links/edit/<%= link.id %>" method="POST" class="form-body">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Título</label>
+                <input value="<%= link.title %>" type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Título" autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Link</label>
+                <input value="<%= link.url %>" type="url" name="link" class="form-control" id="exampleFormControlInput1" placeholder="URL">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                <textarea value="<%= link.description %>" class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Editar Link</button>
+        </form>
+    <% } %>
+    
 
 </body>
 

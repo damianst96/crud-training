@@ -45,22 +45,31 @@ router.post('/add', async function(req, res){
 
 //EDIT ROUTE
 router.get('/links/edit/:id', async function(req, res){
-    let linkToEdit = db.Link.findByPk(req.params.id);
+    let linkToEdit = await db.Link.findByPk(req.params.id);
     res.render("editLink", {link: linkToEdit});
 })
 
 router.post('/links/edit/:id', async function(req, res){
-    let linkToEdit = db.Link.findByPk(req.params.id);
+    let linkToEdit = await db.Link.findByPk(req.params.id);
     if (linkToEdit){
-        await db.Link.update({
-            title: req.body.title,
-            url: req.body.link,
-            description: req.body.description
-        }, {
-            where: {
-                id: req.params.id
-            }
-        });
+        try{
+            await db.Link.update({
+                title: req.body.title,
+                url: req.body.link,
+                description: req.body.description
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            res.redirect('/links');
+
+        } catch(error){
+            console.log(error);
+            res.redirect(`/links/edit/${req.params.id}`);
+        }
+        
     } else {
         res.send("Producto no encontrado");
     }
